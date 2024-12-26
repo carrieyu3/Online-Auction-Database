@@ -4,7 +4,7 @@ CREATE SCHEMA IF NOT EXISTS ONLINE_AUCTION; -- Create Online Auction database
 USE ONLINE_AUCTION; -- Select Online Auction database
 
 CREATE TABLE USER (
-	UserID VARCHAR(10) NOT NULL,
+    UserID VARCHAR(10) NOT NULL,
     Username VARCHAR(15) NOT NULL,
     Account VARCHAR(30) NOT NULL,
     Full_name VARCHAR(20) NOT NULL,
@@ -14,16 +14,16 @@ CREATE TABLE USER (
 
 -- Create tables
 CREATE TABLE SELLER (
-	UserID VARCHAR(10) NOT NULL,
+    UserID VARCHAR(10) NOT NULL,
     Username VARCHAR(15) NOT NULL,
-	Shipping_address VARCHAR(50),
+    Shipping_address VARCHAR(50),
     
     PRIMARY KEY (UserID, Username),
     FOREIGN KEY (UserID, Username) REFERENCES USER (UserID, Username)
 );
 
 CREATE TABLE BUYER (
-	UserID VARCHAR(10) NOT NULL,
+    UserID VARCHAR(10) NOT NULL,
     Username VARCHAR(15) NOT NULL,
     Mailing_address VARCHAR(50) NOT NULL,
     Billing_address VARCHAR(50) NOT NULL,
@@ -33,8 +33,8 @@ CREATE TABLE BUYER (
 );
 
 CREATE TABLE AUCTION (
-	AuctionID VARCHAR(10) NOT NULL, 
-	`Date` DATE NOT NULL,
+    AuctionID VARCHAR(10) NOT NULL, 
+    `Date` DATE NOT NULL,
     Time_frame TIME NOT NULL,
     `Status` VARCHAR (10) NOT NULL,
     
@@ -42,7 +42,7 @@ CREATE TABLE AUCTION (
 );
 
 CREATE TABLE ITEM (
-	AuctionID VARCHAR(10) NOT NULL,
+    AuctionID VARCHAR(10) NOT NULL,
     ItemID VARCHAR(10) NOT NULL,
     Item_name VARCHAR(15) NOT NULL,
     `Description` VARCHAR(50),
@@ -53,7 +53,7 @@ CREATE TABLE ITEM (
 );
 
 CREATE TABLE BID (
-	AuctionID VARCHAR(10) NOT NULL,
+    AuctionID VARCHAR(10) NOT NULL,
     BidID VARCHAR(10) NOT NULL,
     Price DECIMAL (10, 2) NOT NULL, #10 digits in total, 2 digits after the decimal point
     
@@ -62,7 +62,7 @@ CREATE TABLE BID (
 );
 
 CREATE TABLE PAYMENT (
-	UserID VARCHAR(10) NOT NULL,
+    UserID VARCHAR(10) NOT NULL,
     ItemID VARCHAR(10) NOT NULL,
     BidID VARCHAR(10) NOT NULL,
     PaymentID VARCHAR(15) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE PAYMENT (
 );
 
 CREATE TABLE PAYMENT_METHOD (
-	PaymentID VARCHAR(15) NOT NULL,
+    PaymentID VARCHAR(15) NOT NULL,
     Payment_Type VARCHAR(15) NOT NULL,
     
     PRIMARY KEY (PaymentID),
